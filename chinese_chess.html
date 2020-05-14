@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>棋盤</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: '標楷體', sans-serif;
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+        }
+
+        .bigbox {
+            width: 742px;
+            height: 822px;
+            border: 1px solid black;
+            margin: auto;
+            display: flex;
+        }
+
+        .box {
+            width: 642px;
+            height: auto;
+            display: flex;
+            margin: 50px;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-content: flex-start;
+        }
+
+        .col {
+            width: 80px;
+            border: 1px solid black;
+
+            height: 80px;
+            position: relative;
+        }
+
+        .col2::before {
+            content: "";
+            left: -1px;
+            position: absolute;
+            height: 108.13708499px;
+            border: 1px solid black;
+            transform: rotate(-45deg);
+            transform-origin: top;
+        }
+
+        .col3::before {
+            content: "";
+            right: -1px;
+            position: absolute;
+            height: 108.13708499px;
+            border: 1px solid black;
+            transform: rotate(45deg);
+            transform-origin: right top;
+            top: 1px
+        }
+
+        .river {
+            border: 1px solid black;
+            width: 640px;
+            height: 80px;
+
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .chessbox {
+            z-index: 999;
+            width: 722px;
+            height: auto;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            align-content: flex-start;
+            position: absolute;
+        }
+
+        .chess {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 40px;
+            line-height: 60px;
+            background: white;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        .chessbox2 {
+            z-index: 999;
+            width: 722px;
+            height: auto;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            align-content: flex-start;
+            position: absolute;
+            margin-top: 160px;
+
+        }
+
+        .chess2 {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 40px;
+            line-height: 60px;
+            background: white;
+            margin-top: 20px;
+            margin-left: 180px;
+        }
+
+        .chess2-1 {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 40px;
+            line-height: 60px;
+            background: white;
+            margin-top: 20px;
+            margin-left: 260px;
+        }
+
+        .chessbox3 {
+            z-index: 999;
+            width: 722px;
+            height: auto;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            align-content: flex-start;
+            position: absolute;
+            margin-top: 240px;
+            justify-content: space-between;
+        }
+
+        /* ------------------------------------------------------------ */
+        .redchessbox {
+            z-index: 9999;
+            width: 722px;
+            height: 822px;
+            display: flex;
+            flex-wrap: wrap-reverse;
+            align-content: flex-start;
+            position: absolute;
+            margin-top: -20px;
+            color: red;
+        }
+
+        .redchessbox2 {
+            z-index: 9995;
+            width: 722px;
+            height: 822px;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-wrap: wrap-reverse;
+            align-content: flex-start;
+            position: absolute;
+            margin-top: -180px;
+            color: red;
+        }
+
+        .redchessbox3 {
+            z-index: 9995;
+            width: 722px;
+            height: 822px;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-wrap: wrap-reverse;
+            align-content: flex-start;
+            position: absolute;
+            margin-top: -260px;
+            color: red;
+            justify-content: space-between;
+        }
+
+        span {
+            font-size: 50px;
+            line-height: 80px;
+        }
+
+        .container {
+            width: auto;
+            height: 822px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div style="writing-mode: vertical-lr; font-size:40px ;display:flex">
+            棋盤裡，車無輪馬不韁，叫聲將軍堤防堤防
+        </div>
+        <div class="bigbox">
+            <div class="chessbox">
+                <div class="chess">車</div>
+                <div class="chess">馬</div>
+                <div class="chess">象</div>
+                <div class="chess">士</div>
+                <div class="chess">將</div>
+                <div class="chess">士</div>
+                <div class="chess">象</div>
+                <div class="chess">馬</div>
+                <div class="chess">車</div>
+            </div>
+            <div class="chessbox2">
+                <div class="chess2">包</div>
+                <div class="chess2-1">包</div>
+            </div>
+            <div class="chessbox3">
+                <div class="chess">卒</div>
+                <div class="chess">卒</div>
+                <div class="chess">卒</div>
+                <div class="chess">卒</div>
+                <div class="chess">卒</div>
+            </div>
+            <div class="redchessbox">
+                <div class="chess">俥</div>
+                <div class="chess">傌</div>
+                <div class="chess">相</div>
+                <div class="chess">仕</div>
+                <div class="chess">帥</div>
+                <div class="chess">仕</div>
+                <div class="chess">相</div>
+                <div class="chess">傌</div>
+                <div class="chess">俥</div>
+            </div>
+            <div class="redchessbox2">
+                <div class="chess2">炮</div>
+                <div class="chess2-1">炮</div>
+            </div>
+            <div class="redchessbox3">
+                <div class="chess">兵</div>
+                <div class="chess">兵</div>
+                <div class="chess">兵</div>
+                <div class="chess">兵</div>
+                <div class="chess">兵</div>
+            </div>
+            <div class="box">
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col col2"></div>
+                <div class="col col3"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col col3"></div>
+                <div class="col col2"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="river">
+                    <span>楚河</span>
+                    <span>漢界</span>
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col col2"></div>
+                <div class="col col3"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col col3"></div>
+                <div class="col col2"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+            </div>
+            <div style="writing-mode: vertical-lr; font-size:40px ;display:flex">
+                圖畫裡，龍不吟虎不笑，小小書僮可笑可笑
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
